@@ -63,6 +63,30 @@ ptr = (int*)0x67a9; // define point to address
 // *(int* const)(0x67a9) = 0xaa66;
 
 Interrupts
+ANSI C: _interrupt kwy words define
+ISR can not return a value
+ISR can not feed variable
+ISR is not good for float calculation in ISR function
+ISR is not good in printf, influence ability
+
+Code examples:
+unsigned int + int = unsigned int > 0 !!!
+
+ unsigned int zero = 0;
+wrong way: unsigned int compzero = 0xFFFF;
+right way: unsigned int compzero = ~0;
+because you do not know processpr's word-length
+ 
+ Dynamic memory allocation
+char *ptr;
+if ((ptr = (char *)malloc(0)) == NULL)
+puts("Got a null pointer");
+else
+puts("Got a valid pointer");// answer, no error but not null, there is address you can see
+
+Typedef
+#define dPS struct s *
+typedef struct s * tPS;// better
 
 
 
